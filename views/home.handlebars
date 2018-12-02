@@ -1,0 +1,17 @@
+{{> header}}
+
+<main class="content">
+
+  {{> filters}}
+
+  <section id="posts">
+    {{#each posts}}
+      {{> post}}
+    {{/each}}
+  </section>
+
+</main>
+
+{{> sellButton}}
+
+{{> sellModal}}
