@@ -33,14 +33,14 @@ app.get('/', function (req, res) {
 		posts: posts
 	});
 });
-
+/*
 // home page with multiple posts
 app.get('/home', function (req, res) {
 	res.render("home", {
 		posts: posts
 	});
 });
-
+*/
 app.get('/submit', function (req, res) {
 	res.render("submit");
 });

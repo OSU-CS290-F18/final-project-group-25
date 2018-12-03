@@ -4,8 +4,6 @@
   "description": "Final project",
   "main": "server.js",
   "scripts": {
-    "prestart": "npm run build",
-    "build": "handlebars views/partials/post.handlebars -f public/postTemplate.js",
     "start": "node server.js"
   },
   "repository": {

@@ -75,7 +75,7 @@ header {
 	border-radius: 0px;
 	border-bottom-left-radius: 25px;
 	float: left;
-/*	height: 100px;*/
+	height: calc(100% - 42px);
 }
 
 .header>* {
@@ -87,7 +87,7 @@ header {
 	margin-top: 0px;
 }
 
-#post-button {
+#header-button {
 	float: right;
 	font-size: 40px;
 	color: #ffffff;
@@ -104,7 +104,7 @@ header {
 	height: 100%;
 }
 
-#post-button:hover {
+#header-button:hover {
 	background-color: #37efba;
 	color: black;
 }
