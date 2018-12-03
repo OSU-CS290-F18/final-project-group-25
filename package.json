@@ -10,11 +10,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OSU-CS290-F18/final-project-group-25"
+    "url": "https://github.com/OSU-CS290-F18/final-project-group-25/"
   },
   "author": "Gabriel Kulp",
   "license": "UNLICENSED",
-  "homepage": "https://github.com/OSU-CS290-F18/final-project-group-25readme",
+  "homepage": "https://github.com/OSU-CS290-F18/final-project-group-25/blob/master/README.md",
   "dependencies": {
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0"

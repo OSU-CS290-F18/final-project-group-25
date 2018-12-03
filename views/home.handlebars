@@ -1,17 +1,9 @@
-{{> header}}
+{{> home-header}}
 
-<main class="content">
+<div id="posts">
 
-  {{> filters}}
+  {{#each posts}}
+    {{> post}}
+  {{/each}}
 
-  <section id="posts">
-    {{#each posts}}
-      {{> post}}
-    {{/each}}
-  </section>
-
-</main>
-
-{{> sellButton}}
-
-{{> sellModal}}
+</div>

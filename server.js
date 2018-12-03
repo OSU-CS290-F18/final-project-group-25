@@ -34,13 +34,25 @@ app.get('/', function (req, res) {
 	});
 });
 
-// page with single post (or 404 if invalid)
+// home page with multiple posts
+app.get('/home', function (req, res) {
+	res.render("home", {
+		posts: posts
+	});
+});
+
+app.get('/submit', function (req, res) {
+	res.render("submit");
+});
+
+/* page with single post (or 404 if invalid)
 app.get('/posts/:postID', function (req, res) {
 	if (posts[req.params.postID])
 		res.render("single", posts[req.params.postID]);
 	else
 		res.render("404");
 });
+*/
 
 // catch-all if requesting something else
 app.get('*', function (req, res) {

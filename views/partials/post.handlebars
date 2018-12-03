@@ -1,10 +1,14 @@
-<div class="post" data-price="{{price}}" data-city="{{city}}" data-condition="{{condition}}">
-  <div class="post-contents">
-    <div class="post-image-container">
-      <img src="{{photoURL}}" alt="{{description}}">
-    </div>
-    <div class="post-info-container">
-      <a href="#" class="post-title">{{description}}</a> <span class="post-price">${{price}}</span> <span class="post-city">({{city}})</span>
-    </div>
+<div class="card post">
+  <div class="post-image">
+      <img src="{{photoURL}}" alt="{{photoAlt}}">
+  </div>
+    <div class="post-title">
+    <h2>{{title}}</h2>
+    <h4>{{author}} - {{date}}</h4>
+  </div>
+  <div class="post-body">
+    {{#each body}}
+      <p>{{paragraph}}</p>
+    {{/each}}
   </div>
 </div>
