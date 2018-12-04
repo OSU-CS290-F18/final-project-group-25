@@ -6,13 +6,13 @@
       <p>Enter a title, author, and message. Upload an image with the upload button if you would like.</p>
     </div>
     <div class="submit-text">
-      <input type="text" name="post-title"/>
-      <input type="text" name="post-author"/>
-      <textarea name="post-content" ></textarea>
+      <input type="text" id="post-title"/>
+      <input type="text" id="post-author"/>
+      <textarea id="post-content" ></textarea>
     </div>
   </div>
   <div class="submit-footer">
     <button type="button" class="submit-button" id="cancel-button" onclick="location.href='/'">Cancel</button>
-    <button type="button" class="submit-button" id="submit-button">Submit</button>
+    <button type="button" class="submit-button" id="submit-button" onclick="submitPost();">Submit</button>
   </div>
 </div>

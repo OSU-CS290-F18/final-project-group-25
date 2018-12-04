@@ -5,9 +5,9 @@
 		"title": "I rented a cat today",
 		"author": "anon 2.0",
 		"date": "January 1, 1970",
-		"body": [
-			{"paragraph": "This is the first paragraph"},
-			{"paragraph": "This is the second, I hope"}
+		"content": [
+			"This is the first paragraph",
+			"This is the second, I hope"
 		]
 	}, {
 		"photoURL": "https://www.nicklitten.com/wp-content/uploads/json-black.jpg",
@@ -15,10 +15,10 @@
 		"title": "Found a some JSON on the sidewalk",
 		"author": "anon 4.0",
 		"date": "January 7, 1970",
-		"body": [
-			{"paragraph": "This is some filler text"},
-			{"paragraph": "The filler text has a part 2, too"},
-			{"paragraph": "And a part 3, apparently."}
+		"content": [
+			"This is some filler text",
+			"The filler text has a part 2, too",
+			"And a part 3, apparently."
 		]
 	}
 ]

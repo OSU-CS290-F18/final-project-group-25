@@ -14,6 +14,7 @@
   "license": "UNLICENSED",
   "homepage": "https://github.com/OSU-CS290-F18/final-project-group-25/blob/master/README.md",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0"
   }
