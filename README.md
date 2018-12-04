@@ -9,4 +9,10 @@ Gabriel Kulp
 Wednesday, December 5. 14:00-14:10
 
 ## How to run
-Probably it'll just be `npm start` and it'll tell you the port.
+
+### First-time setup
+Make sure your database is running and accessible. Run `npm install`.
+
+### Starting the server
+Just run `npm start` for the default configuration and it'll tell you the port.
+If you want a different port, use 'PORT=#### npm start', where #### is the port.

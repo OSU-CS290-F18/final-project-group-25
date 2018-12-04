@@ -138,10 +138,15 @@ footer>p {
 }
 
 
+/* Styles specific to the modal */
+#modal-img-container {
+	position: 0px 0px;
+}
+
 /* Styles specific to the submit page */
 .submit-header {
 	border-bottom-right-radius: 25px;
-	width: 100%;
+	width: calc(100% - 102px);
 }
 
 .submit-body {
