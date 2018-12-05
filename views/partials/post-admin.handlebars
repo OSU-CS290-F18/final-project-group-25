@@ -1,7 +1,7 @@
-<div class="card post post-admin" id="postid-{{id}}">
-  <form action="/post/delete" method="POST">
+<div class="card post" id="postid-{{id}}">
+  <form action="/post/delete" method="POST" class="admin-form">
     <input type="number" name="postID" value="{{id}}" style="display: none">
-    <button type="submit" id="button-delete-{{id}}">x</button>
+    <button type="submit" class="admin-delete">x</button>
   </form>
   <div class="post-image">
       <img src="{{data.photo}}" alt="{{data.alt}}">

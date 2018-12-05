@@ -65,7 +65,7 @@ app.post('/post/add', function (req, res) {
 				res.status(400).send("Database error: " + error);
 			newPost.id = results[0].insertId;
 			posts.unshift(newPost);
-			res.status(200).send("Success");
+			res.redirect("/");
 		});
 	} else {
 		res.status(400).send("Malformed request");
@@ -78,7 +78,7 @@ app.post('/post/delete', function (req, res) {
 			if (error)
 				res.status(400).send("Database error: " + error);
 			posts = posts.filter(x => (x.id != req.body.postID));
-			res.redirect("/");
+			res.redirect("/admin");
 		});
 	} else {
 		res.status(400).send("Malformed request");

@@ -113,7 +113,10 @@ header.card>h1 {
 	margin-top: 0px;
 }
 
-/* all children of post-title */
+.post {
+  min-height: 200px;
+}
+
 .post-title>* {
 	margin: 0px;
 	margin-bottom: 5px;
@@ -138,6 +141,14 @@ footer>p {
 	font-size: 14px;
 }
 
+#admin-link {
+	color: #424250;
+}
+
+#admin-link:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
 
 /* Styles specific to the modal */
 #modal-img-container {
@@ -151,16 +162,15 @@ footer>p {
 }
 
 .submit-body {
-	display: flex;
+	display: block;
 }
 
-.submit-instructions {
-	flex-grow: 1;
-	flex-shrink: 5;
+.submit-instructions p {
+  padding-top: 0px;
 }
 
 .submit-text {
-	flex-grow: 2;
+  width: 110%;
 }
 
 .submit-text>* {
@@ -185,6 +195,26 @@ footer>p {
 }
 
 .submit-button:hover {
+	background-color: #37efba;
+	color: black;
+}
+
+/* Styles specific to admin page */
+.admin-form {
+  float: right;
+  margin: -25px;
+}
+
+.admin-delete {
+	font-size: 20px;
+	color: #ffffff;
+	background-color: #27272f;
+	border: solid 1px #04b97f;
+	border-radius: 10px;
+	padding: 2px 13px 5px 13px;
+}
+
+.admin-delete:hover {
 	background-color: #37efba;
 	color: black;
 }
