@@ -13,6 +13,7 @@ var db = require('./dbcon.js');
 var express = require('express');
 var hbs  = require('express-handlebars');
 var bodyParser = require('body-parser');
+var multer = require('multer');
 
 // read external config
 var port = process.env.PORT || 3000;
@@ -27,7 +28,8 @@ db.pool.query("SELECT * FROM posts", [], function (error, results, fields) {
 });
 //var posts = require('./postData.json');
 
-// set up express and handlebars
+// set up express, handlebars, multer
+var upload = multer({dest: path.join(__dirname, "./temp")});
 var app = express();
 app.set('view engine', 'handlebars');
 app.set('mysql', db);
@@ -52,25 +54,27 @@ app.get('/submit', function (req, res) {
 	res.render("submit");
 });
 
-app.post('/post/add', function (req, res) {
+app.post('/post/add', upload.single("image"), function (req, res) {
 	if (req.body && req.body.title) {
-		var newPost = {
-			data: {
-				photo: req.body.photo,
-				alt: req.body.title,
-				title: req.body.title,
-				author: req.body.author,
-				date: (new Date()).toString().split(' ').splice(1,4).join(' ')
-			}
-		};
-		// split post into paragraphs. ignore empty lines.
-		newPost.data.content = req.body.content.split("\n").filter(Boolean);
-		db.pool.query("INSERT INTO posts (data) values (?); SELECT LAST_INSERT_ID()", [JSON.stringify(newPost.data)], function (error, results, fields) {
-			if (error)
-				res.status(400).send("Database error: " + error);
-			newPost.id = results[0].insertId;
-			posts.unshift(newPost);
-			res.redirect("/");
+		var targetPath = path.join(__dirname, "./public/images/", req.file.originalname);
+		fs.rename(req.file.path, targetPath, error => {
+        	if (error) res.status(400).send("Filesystem error: " + error);
+			var newPost = {
+				data: {
+					photo: path.join("/images/", req.file.originalname),
+					alt: req.body.title,
+					title: req.body.title,
+					author: req.body.author,
+					date: (new Date()).toString().split(' ').splice(1,4).join(' ')
+				}
+			};
+			newPost.data.content = req.body.content.split("\n").filter(Boolean);
+			db.pool.query("INSERT INTO posts (data) values (?); SELECT LAST_INSERT_ID()", [JSON.stringify(newPost.data)], function (error, results, fields) {
+				if (error) res.status(400).send("Database error: " + error);
+				newPost.id = results[0].insertId;
+				posts.unshift(newPost);
+				res.redirect("/");
+			});
 		});
 	} else {
 		res.status(400).send("Malformed request");
@@ -82,6 +86,12 @@ app.post('/post/delete', function (req, res) {
 		db.pool.query("DELETE FROM posts WHERE id=?", [req.body.postID], function (error, results, fields) {
 			if (error)
 				res.status(400).send("Database error: " + error);
+			var toDelete = posts.filter(x => (x.id == req.body.postID))[0];
+			
+			fs.unlink(path.join(__dirname, "./public/", toDelete.data.photo), error => {
+				if (error) console.error("Filesystem error: "+error);
+			});
+			
 			posts = posts.filter(x => (x.id != req.body.postID));
 			res.redirect("/admin");
 		});
