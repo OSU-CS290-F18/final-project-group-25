@@ -17,6 +17,7 @@ function zoomImage (src, alt) {
   backdrop.style = "";
 }
 
+// function to make lines starting with ">" green
 function greentext () {
 	var paragraphs = document.querySelectorAll('.post p');
 	for (var p of paragraphs) {
