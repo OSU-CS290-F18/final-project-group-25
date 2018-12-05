@@ -15,7 +15,7 @@ function submitPost () {
 	} else {
 
 		var postRequest = new XMLHttpRequest();
-		var requestURL = '/submit/data';
+		var requestURL = '/post/add';
 		postRequest.open('POST', requestURL);
 
 		var requestBody = JSON.stringify({

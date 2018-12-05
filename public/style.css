@@ -123,6 +123,7 @@ header.card>h1 {
 	float: right;
 	max-width: 200px;
 	max-height: 200px;
+	margin: 25px;
 }
 
 .post-body>p {

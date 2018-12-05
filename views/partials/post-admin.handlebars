@@ -1,4 +1,8 @@
-<div class="card post" id="postid-{{id}}">
+<div class="card post post-admin" id="postid-{{id}}">
+  <form action="/post/delete" method="POST">
+    <input type="number" name="postID" value="{{id}}" style="display: none">
+    <button type="submit" id="button-delete-{{id}}">x</button>
+  </form>
   <div class="post-image">
       <img src="{{data.photo}}" alt="{{data.alt}}">
   </div>
