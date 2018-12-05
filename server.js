@@ -18,6 +18,11 @@ var bodyParser = require('body-parser');
 var port = process.env.PORT || 3000;
 var posts;
 db.pool.query("SELECT * FROM posts", [], function (error, results, fields) {
+	if (error || !results) {
+		console.error("!! Database is either not running or setup improperly!");
+		console.log("== Exiting");
+		process.exit(0);
+	}
 	posts = results.map(x => {return {"id": x.id, "data": JSON.parse(x.data)};}).reverse();
 });
 //var posts = require('./postData.json');
